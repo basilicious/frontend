@@ -1,6 +1,11 @@
 import Header from "../components/header";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import loginGuard from "../utils/loginguard";
 
 export default function ManageKeys() {
+    useEffect(loginGuard(useNavigate()), []);
+    
     return (
         <>
             <Header />

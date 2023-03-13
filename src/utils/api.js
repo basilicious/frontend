@@ -16,26 +16,21 @@ function checkJWT() {
 }
 
 async function getUser() {
-    // const res = await fetch(`${BASE_API_URL}/user`, {
-    //     method: 'POST',
-    //     headers: headers()
-    // });
+    const res = await fetch(`${BASE_API_URL}/auth/getUserProfile`, {
+        method: 'POST',
+        headers: headers()
+    });
 
-
-
-    // if (res.status === 200) {
-    //     return { error: false, payload: await res.json()}
-    // } else if (res.status === 401) {
-    //     return {
-    //         error: true,
-    //         message: res.statusText,
-    //         response: await res.json()
-    //     }
-    // }
-    // return { error: true, res: await res.json() }
-
-    return { error: false, payload: { email: 'basillabib@gmail.com', _id: "1"}};
-    
+    if (res.status === 200) {
+        return { error: false, payload: await res.json()}
+    } else if (res.status === 401) {
+        return {
+            error: true,
+            message: res.statusText,
+            response: await res.json()
+        }
+    }
+    return { error: true, res: await res.json() }
 }
 
 function logout() {

@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/header";
 import { BASE_API_URL } from "../utils/api";
+import loginGuard from "../utils/loginguard";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+    useEffect(loginGuard(useNavigate()), []);
+    
     const [prompt, setPrompt] = useState('');
     const [isProcessing, setProcessing] = useState(false);
     const [result, setResult] = useState('');
