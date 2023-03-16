@@ -1,4 +1,4 @@
-const BASE_API_URL = 'http://localhost:8080';
+const BASE_API_URL = 'https://backend-sandy-one.vercel.app';
 
 
 const JWT_KEY = 'GENESIS_JWT';
